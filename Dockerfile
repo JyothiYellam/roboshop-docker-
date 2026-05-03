@@ -1,5 +1,5 @@
 FROM almalinux:9
-RUN sudo dnf install nginx -y
-RUN sudo useradd webuser
+RUN  dnf install nginx -y
+RUN  useradd webuser
 USER webuser
 CMD ["printenv"]
