@@ -1,5 +1,4 @@
 FROM almalinux:9
-RUN  dnf install nginx -y
-RUN  useradd webuser
-USER webuser
-CMD ["printenv"]
+WORKDIR /myapp
+RUN echo "Docker is awesome!" > myfile.txt
+CMD ["cat","myfile.txt"]
