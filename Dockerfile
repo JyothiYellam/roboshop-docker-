@@ -1,4 +1,5 @@
+echo "My name is Jyothi, I am learning Docker!" > myinfo.txt
 FROM almalinux:9
-WORKDIR /myapp
-RUN echo "Docker is awesome!" > myfile.txt
-CMD ["cat","myfile.txt"]
+COPY myinfo.txt/ /tmp/
+CMD ["cat", "myinfo.txt"]
+
