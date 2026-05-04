@@ -1,5 +1,5 @@
-echo "My name is Jyothi, I am learning Docker!" > myinfo.txt
 FROM almalinux:9
-COPY myinfo.txt /tmp/
-CMD ["cat", "/tmp/myinfo.txt"]
+COPY file1.txt file2.txt /tmp/
+CMD ["sh", "-c", "cat /tmp/file1.txt /tmp/file2.txt"]
+
 
