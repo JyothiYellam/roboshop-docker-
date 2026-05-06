@@ -1,6 +1,6 @@
 services:
   catalogue:
-    build: ./catalogue
+    build: ./Catalogue
     image: jyothiyellam/catalogue:1.0.0
     container_name: catalogue
     depends_on:
