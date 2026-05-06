@@ -1,0 +1,20 @@
+services:
+   catalogue:
+      build:
+        dockerfile: catalogue.Dockerfile
+      image: jyothiyellam/catalogue:1.0.0
+      container_name: catalogue
+      depends_on:
+      - mongodb
+   mongoodb:
+      build:
+        dockerfile: mongodb.Dockerfile 
+      image: jyothiyellam/mongodb:1.0.0
+      container_name: mongodb
+
+networks:
+   default:
+      driver: bridge
+      name: roboshop
+      external: false
+      
