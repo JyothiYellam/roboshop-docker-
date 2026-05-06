@@ -1,34 +1,34 @@
 services:
   catalogue:
     build: ./catalogue
-    image: jyothiyellam/catalogue:1.0.0
+    image: jyothi023/catalogue:1.0.0
     container_name: catalogue
     depends_on:
       - mongodb
   user:
     build: ./user
-    image: jyothiyellam/user:1.0.0
+    image: jyothi023/user:1.0.0
     container_name: user
     depends_on:
     - redis
     - mongodb
   cart:
     build: ./cart
-    image: jyothiyellam/cart:1.0.0
+    image: jyothi023/cart:1.0.0
     container_name: cart
     depends_on:
     - redis
     - catalogue
   shipping:
     build: ./shipping
-    image: jyothiyellam/shipping:1.0.0
+    image: jyothi023/shipping:1.0.0
     container_name: shipping
     depends_on:
     - mysql
     - cart
   payment:
     build: ./payment
-    image: jyothiyellam/payment:1.0.0
+    image: jyothi023/payment:1.0.0
     container_name: payment
     environment:
       CART_HOST: "cart"
@@ -44,7 +44,7 @@ services:
     - user
   frontend:
     build: ./frontend
-    image: jyothiyellam/frontend:1.0.0
+    image: jyothi023/frontend:1.0.0
     container_name: frontend
     ports:
     - "80:80"
@@ -57,14 +57,14 @@ services:
 
   mongodb:
     build: ./mongodb
-    image: jyothiyellam/mongodb:1.0.0
+    image: jyothi023/mongodb:1.0.0
     container_name: mongodb
   redis:
     image: redis:7.0
     container_name: redis
   mysql:
     build: ./mysql
-    image: jyothiyellam/mysql:1.0.0
+    image: jyothi023/mysql:1.0.0
     container_name: mysql
   rabbitmq:
     image: rabbitmq:3
