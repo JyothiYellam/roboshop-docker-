@@ -1,15 +1,13 @@
 services:
   catalogue:
-    build:
-      dockerfile: catalogue.Dockerfile
+    build: ./catalogue
     image: jyothiyellam/catalogue:1.0.0
     container_name: catalogue
     depends_on:
       - mongodb
 
   mongodb:
-    build:
-      dockerfile: mongodb.Dockerfile
+    build: ./mongodb
     image: jyothiyellam/mongodb:1.0.0
     container_name: mongodb
 
