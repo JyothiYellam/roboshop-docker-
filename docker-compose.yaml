@@ -34,7 +34,7 @@ services:
     - user
     - cart
     - shipping
-    
+
   mongodb:
     build: ./mongodb
     image: jyothiyellam/mongodb:1.0.0
@@ -46,7 +46,12 @@ services:
     build: ./mysql
     image: jyothiyellam/mysql:1.0.0
     container_name: mysql
-
+  rabbitmq:
+    image: rabbitmq:3
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: mysql
+    container_name: rabbitmq
 networks:
   default:
     driver: bridge
