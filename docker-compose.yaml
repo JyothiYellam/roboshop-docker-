@@ -1,15 +1,35 @@
 services:
   catalogue:
-    build: ./catalogue
+    build: 
+      dockerfile: catalogue.Dockerfile
     image: jyothiyellam/catalogue:1.0.0
     container_name: catalogue
     depends_on:
       - mongodb
-
+  user:
+    build:
+      dockerfile: user.Dockerfile
+    image: jyothiyellam/user:1.0.0
+    container_name: user
+    depends_on:
+    - redis
+  frontend:
+    build: 
+      dockerfile: frontend.Dockerfile
+    image: jyothiyellam/frontend:1.0.0
+    container_name: frontend
+    depends_on:
+    - catalogue
+    - user
+     
   mongodb:
-    build: ./mongodb
+    build: 
+      dockerfile: mongodb.Dockerfile 
     image: jyothiyellam/mongodb:1.0.0
     container_name: mongodb
+  redis:
+    image: redis:7.0
+    container_name: redis
 
 networks:
   default:
