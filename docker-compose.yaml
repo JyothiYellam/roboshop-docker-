@@ -59,21 +59,34 @@ services:
     build: ./mongodb
     image: jyothi023/mongodb:1.0.0
     container_name: mongodb
+    volumes:
+    - mongodb: /data/db
   redis:
     image: redis:7.0
     container_name: redis
+    volumes:
+    - redis:/data
   mysql:
     build: ./mysql
     image: jyothi023/mysql:1.0.0
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
   rabbitmq:
     image: rabbitmq:3
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
     container_name: rabbitmq
+    volumes:
+    - rabbitmq: /var/lib/rabbitmq
 networks:
   default:
     driver: bridge
     name: roboshop
     external: false
+volumes:
+  mongodb:
+  redis:
+  mysql:
+  rabbitmq:
