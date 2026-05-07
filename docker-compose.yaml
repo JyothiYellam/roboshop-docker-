@@ -79,7 +79,7 @@ services:
       RABBITMQ_DEFAULT_PASS: roboshop123
     container_name: rabbitmq
     volumes:
-    - rabbitmq: /var/lib/rabbitmq
+    - rabbitmq:/var/lib/rabbitmq
 networks:
   default:
     driver: bridge
