@@ -15,7 +15,7 @@ RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
   chown -R roboshop:roboshop /app
 COPY --from=builder /app/shipping.jar .
 USER roboshop
-ENTRYPOINT ["java", "-jar", "shipping"]
+ENTRYPOINT ["java", "-jar", "shipping.jar"]
 
 
 
