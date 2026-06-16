@@ -1,8 +1,19 @@
-FROM python:3.9
-EXPOSE 8080
+FROM python:3.9.25-alpine3.22
 WORKDIR /app
-COPY payment.ini .
-COPY *.py .
+#Run apk add --no cache build-base linux-headers pcre-dev
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
-CMD ["uwsgi", "--ini", "payment.ini"]
+RUN pip3.9 install --prefix=/install -r requirements.txt
+
+
+
+
+
+
+# FROM python:3.9
+# EXPOSE 8080
+# WORKDIR /app
+# COPY payment.ini .
+# COPY *.py .
+# COPY requirements.txt .
+# RUN pip3 install -r requirements.txt
+# CMD ["uwsgi", "--ini", "payment.ini"]
